@@ -1,7 +1,7 @@
-const API_URL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies';
+const api_url = 'https://api.exchangerate-api.com/v4/latest/';
 
 export async function exchangeRates(baseCurrency, targetCurrency) {
-    const url = `${API_URL}/${baseCurrency()}/${targetCurrency}`;
+    const url = `${api_url}/${baseCurrency}/${targetCurrency}.json`;
     const response = await fetch(url);
     const data = await response.json();
     return data[targetCurrency];    

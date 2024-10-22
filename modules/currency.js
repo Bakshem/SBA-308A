@@ -1,21 +1,21 @@
-import {exchangeRates} from './api.js'
+import exchangeRates from './api.js'
 
 async function convertCurrency() {
     const amount = parseFloat(document.getElementById('amount').value);
     const baseCurrency = document.getElementById('base-currency').value;
-    const tagetCurrency = document.getElementById('target-currency').value;
+    const targetCurrency = document.getElementById('target-currency').value;
 
-    if (isNaN(amount) || !baseCurrency  || !tagetCurrency) {
+    if (isNaN(amount) || !baseCurrency  || !targetCurrency) {
         alert ('Please enter a valid number amount!');
         return;
     }
 
     try {
-        const rate = await exchangeRates( baseCurrency, tagetCurrency );
+        const rate = await exchangeRates( baseCurrency, targetCurrency );
         const convertedAmount = amount * rate ;
-        document.querySelector('.result').textContent = `${amount} of ${baseCurrency} is equal to ${convertedAmount} of ${tagetCurrency}`;
+        document.querySelector('.result').textContent = `${amount} of ${baseCurrency} is equal to ${convertedAmount} of ${targetCurrency}`;
     } catch (err) {
-        console.error('Error accurred during fetching exchange rate', err);
+        console.error('Error occurred during fetching exchange rate', err);
         alert('Please try again later.');
     }
 }
