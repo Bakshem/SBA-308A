@@ -1,8 +1,12 @@
 const api_url = 'https://api.exchangerate-api.com/v4/latest/';
 
-export async function exchangeRates(baseCurrency, targetCurrency) {
-    const url = `${api_url}/${baseCurrency}/${targetCurrency}.json`;
-    const response = await fetch(url);
+export const fetchCurrencyData = async function (currency) {
+    try {
+    const response = await fetch(`${api_url}${currency}`);
     const data = await response.json();
-    return data[targetCurrency];    
-}
+    return data;  
+    } catch (error) {
+        console.error ("Error occured while fetching data");
+    }
+        
+};
