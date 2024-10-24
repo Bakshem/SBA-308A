@@ -1,1 +1,2 @@
 # SBA-308A
+My single-page application allows users to fetch and display current currency exchange rates for a given bases currency. This application uses the https://github.com/fawazahmed0/exchange-api#readme to provide real time exchange rate data.
